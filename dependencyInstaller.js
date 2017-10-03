@@ -1,9 +1,10 @@
 var packages = [
-	"Dumbledore: harryPotter",
-	"harryPotter: ronWeasley",
-	"Hermione: ",
-	"Snape: Dumbledore",
-	"siriusBlack: Hermione"
+	"KittenService: ",
+	"Leetmeme: Cyberportal",
+	"Cyberportal: Ice",
+	"CamelCaser: KittenService",
+	"Fraudstream: Leetmeme",
+	"Ice: "
 ];
 
 // packages to object array
@@ -16,15 +17,25 @@ var parseArray = function() {
 			dependency =  node[1].trim();
 		if(!newObject[package]) newObject[package] = [];
 		if(!newObject[dependency] && dependency.length > 0) newObject[dependency] = [];
-			console.log(package);
-			console.log(dependency);
 		if (dependency.length > 0) {
 			newObject[package].push(dependency);
 		}
 		
 	})
-	console.log(newObject);
 	return newObject;
 };
 
 var newStuff = parseArray(packages);
+
+console.log('newStuff', newStuff);
+
+var recursiveInstaller = function(parsedArray) {
+    var installOrder = [];
+    var sorted = {};
+
+    Object.keys(parsedArray).forEach(function(key) {	// get the keys of the parsed packages, run them through loop
+      sort(key, []);
+      console.log('sorted[key]', sorted[key]);
+    });
+
+}
